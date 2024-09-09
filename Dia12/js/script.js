@@ -1,65 +1,116 @@
-document.addEventListener("DOMContentLoaded", ()=>{
-    const datoscontenedor= document.querySelector(`opciones`);
-    const tastInput= document.getElementById(`tastInput`);
-    const addtaskButtom=document.getElementById(`addTaskButtom`);
-    async function fetchdata() {
-        const res = await fetch(`https://6674179975872d0e0a950e53.mockapi.io/todoList`)
-        data = await res.json();
+document.addEventListener('DOMContentLoaded',()=>{
+    const datosContenedor = document.querySelector('.opciones');
+    const taskInput = document.getElementById('taskInput');
+    const addTaskButtom = document.getElementById('addTaskButtom');
+
+    async function fetchData(){
+        const res = await fetch('https://66df33aade4426916ee3e00e.mockapi.io/tareas');
+        data=await res.json();
         return data;
-        
     }
     function displayCapsula(capsula){
-        datoscontenedor.innerHTML="";
-        capsula.forEach(cap => {
-            const capDiv =document.createElement("div");
-            if(cap.status==="ready"){
-                capDiv.classlist.add("capsulanegativa");
+        datosContenedor.innerHTML='';
+        capsula.forEach(cap =>{
+            const capDiv = document.createElement('div');
+            if(cap.status ==="ready"){
+                capDiv.classList.add('capsulanegativa');
                 capDiv.innerHTML=`
-                    <div class="capsulanegativa">
-                        <div class="infotextnegaticvo">
-                            <p>${cap.task}</p>
-
+                <div class="capsulanegativa">
+                <div class="infotextnegativo">
+                    <p>${cap.task}</p>
+                </div>
+                    <div class="botonesnegativo">
+                        <div class="terminadonegativo">
+                            <img src="./storage/img/pngwing.com (2).png" data-id="${cap.id}" class="completado">
                         </div>
-                        <div class="botonesnegativo">
-                            <div class="terminadonegativo">
-                                <img src="storage/img/pngwing.com (2).png" data-id="${cap.id}" class="completado">
-                            </div>
-                            <div class="eliminadonegativo">
-                                <img src="storage/img/pngwing.com (4).png" data-id="${cap.id}" class="eliminado">
-                            </div>
+                        <div class="eliminadonegativo">
+                            <img src="./storage/img/pngwing.com (4).png" data-id="${cap.id}" class="eliminado">
                         </div>
-
                     </div>
+                </div>
                 `
             }
-            if(cap.status==="On hold"){
-                capDiv.classlist.add("capsula");
+            if (cap.status === "On hold"){
+                capDiv.classList.add('capsula');
                 capDiv.innerHTML=`
-                    <div class="capsula">
-                        <div class="infotext">
-                            <p>${cap.task}</p>
-
-                        </div>
-                        <div class="botones">
-                            <div class="terminado">
-                                <img src="storage/img/pngwing.com (2).png" data-id="${cap.id}" class="completado">
-                            </div>
-                            <div class="eliminado">
-                                <img src="storage/img/pngwing.com (4).png" data-id="${cap.id}" class="eliminado">
-                            </div>
-                        </div>
-
+                <div class="capsula">
+                    <div class="infotext">
+                        <p>${cap.task}</p>
                     </div>
+                    <div class="botones">
+                        <div class="terminado">
+                            <img src="./storage/img/pngwing.com (2).png" data-id="${cap.id}" class="completado">
+                        </div>
+                        <div class="eliminado">
+                            <img src="./storage/img/pngwing.com (4).png" data-id="${cap.id}" class="eliminado">
+                        </div>
+                    </div>
+                    </div>
+                </div>
                 `
-
             }
-            datoscontenedorcotenedor.appendChild(capDiv)
+            datosContenedor.appendChild(capDiv)
         });
-    }
+        document.querySelectorAll('.completado').forEach( button=>{
+            button.addEventListener('click',botoncompletado);
+        })
+        document.querySelectorAll('.eliminado').forEach( button=>{
+            button.addEventListener('click',botoneliminado);
+        })
 
-    fetchdata().then(data=>{
-        console.log(data)
+    }
+    async function addNewTask() {
+        const task=taskInput.value;
+        if(task.trim()===''){
+            return;
+        }
+        await fetch('https://66df33aade4426916ee3e00e.mockapi.io/tareas',{
+            method: `POST`,
+            headers:{
+               'Content-Type' : 'application/json',
+
+            },
+            body:JSON.stringify({task,status:'On hold'})
+        });
+        taskInput.value='';
+        const data=await fetchData();
+        displayCapsula(data);
+
+
+    }
+    addTaskButtom.addEventListener('click',addNewTask);
+
+
+
+    async function botoncompletado(event) {
+        const id= event.target.getAttribute('data-id');
+        await fetch(`https://66df33aade4426916ee3e00e.mockapi.io/tareas/${id}`,{
+            method: `PUT`,
+            headers:{
+               'Content-Type' : 'application/json',
+
+            },
+            body:JSON.stringify({status: 'ready'})
+        });
+        const data =await fetchData();
+        displayCapsula(data)
+    }
+    async function botoneliminado(event1) {
+        const id= event1.target.getAttribute('data-id');
+        await fetch(`https://66df33aade4426916ee3e00e.mockapi.io/tareas/${id}`,{
+            method: `DELETE`,
+            headers:{
+               'Content-Type' : 'application/json',
+
+            },
+            body:JSON.stringify({status: 'ready'})
+        });
+        const data =await fetchData();
+        displayCapsula(data)
+    }
+    
+    fetchData().then(data =>{
+        console.log(data);
         displayCapsula(data);
     })
-
 })
