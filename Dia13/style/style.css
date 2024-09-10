@@ -1,0 +1,44 @@
+#container{
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vw;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+#barra{
+    width: 100vw;
+    height: 4vw;  
+    border: 1px solid black;
+    position: absolute;
+    top: -0.1vw;
+    background-color: rgb(252, 251, 251);
+}
+#fondo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55vw;
+    border: 1px solid black;
+    height: 30vw;
+    background-image: url("../img/fondotablero.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10vw;
+    border: 10px solid black;
+    box-shadow: 0 0.4vw 0 0.5vw rgb(95, 94, 94);
+}
+#mostracarta1{
+    width: 5vw;
+    height: 10vw;
+}
+#cartita{
+    width: 6vw;
+    height: 10vw;
+}
+
+
