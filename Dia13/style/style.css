@@ -1,7 +1,4 @@
-@font-face {
-    font-family:fuentes;
-    src: url("https://www.es.netfontes.com/autor/Eliot-Truelove.id_256");
-}
+
 #container{
     background-color: rgb(0, 0, 0);
     display: flex;
@@ -125,6 +122,7 @@
     border: 1px solid white;
     left: 8vw;
     top: 6vw;
+    color: white;
 }
 #player2 p{
     color: white;
@@ -137,8 +135,99 @@
     border: 1px solid white;
     left: 80vw;
     top: 35vw;
+    color: white;
 }
 #player1 p{
     color: white;
     text-align: center;
+}
+#div1{
+    border-radius: 2vw;
+    width: 20vw;
+    height: 20vw;
+    z-index: 2;
+    backdrop-filter: blur(15px);
+    text-align: center;
+}
+#perder{
+  
+    color: rgb(0, 0, 0);
+    font-size: 1.8vw;
+    margin-top: 1vw;
+}
+#buttom2{
+    width: 10vw;
+    height: 3vw;
+    border-radius: 2vw;
+    position: absolute;
+    top: 15vw;
+    left: 5vw;
+    background-color: rgb(189, 189, 189);
+}
+#imagen{
+    width: 10vw;
+    height: 6vw;
+    border-radius: 50vw;
+}
+#carita{
+    position: absolute;
+    top:6.5vw;
+    left: 5vw;
+    width: 10vw;
+    height: 6vw;
+    border-radius: 50vw;
+}
+#div2{
+    text-align: center;
+    border-radius: 2vw;
+    width: 20vw;
+    height: 20vw;
+    z-index: 2;
+    backdrop-filter: blur(15px);
+
+}
+#perder1{
+    color: rgb(0, 0, 0);
+    font-size: 1.8vw;
+    margin-top: 1vw;
+}
+#buttom3{
+    width: 10vw;
+    height: 3vw;
+    border-radius: 2em;
+    position: absolute;
+    top: 15vw;
+    left: 5vw;
+    background-color: rgb(189, 189, 189);
+}
+#imagen1{
+    width: 10vw;
+    height: 6vw;
+    border-radius: 50vw;
+}
+#carita1{
+    position: absolute;
+    top:6.5vw;
+    left: 5vw;
+    width: 10vw;
+    height: 6vw;
+    border-radius: 50vw;
+}
+#div3{
+    text-align: center;
+    border-radius: 2vw;
+    width: 20vw;
+    height: 20vw;
+    z-index: 2;
+    backdrop-filter: blur(15px);
+
+}
+#div4{
+    text-align: center;
+    border-radius: 2vw;
+    width: 20vw;
+    height: 20vw;
+    z-index: 2;
+    backdrop-filter: blur(15px);
+
 }

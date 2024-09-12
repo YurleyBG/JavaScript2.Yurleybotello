@@ -1,6 +1,8 @@
 var listap=[]
+var listap2=[]
 var lista0=[]
-fetch("https://deckofcardsapi.com/api/deck/new/draw/?count=6")
+var lista01=[]
+fetch("https://deckofcardsapi.com/api/deck/new/draw/?count=4")
 .then(ren=>ren.json())
 .then(data=>{
     var valor0=data.cards[0].value
@@ -29,8 +31,35 @@ fetch("https://deckofcardsapi.com/api/deck/new/draw/?count=6")
     if(valor1=="ACE"){
         valor1=1
     }
-
+    var valor4=data.cards[2].value
+    if(valor4=="QUEEN"){
+        valor4=10
+    }
+    if(valor4=="KING"){
+        valor4=10
+    }
+    if(valor4=="JACK"){
+        valor4=10
+    }
+    if(valor4=="ACE"){
+        valor4=1
+    }
+    var valor5=data.cards[3].value
+    if(valor5=="QUEEN"){
+        valor5=10
+    }
+    if(valor5=="KING"){
+        valor5=10
+    }
+    if(valor5=="JACK"){
+        valor5=10
+    }
+    else if(valor5=="ACE"){
+        valor1=1
+    }
     lista0.push(parseInt(valor0),parseInt(valor1))
+    lista01.push(parseInt(valor4),parseInt(valor5))
+    console.log("hola",lista01)
     document.getElementById(`mostracarta1`).innerHTML+=`
          <img id="cartita" src="${data.cards[0].images.png}" alt="">
          <img id="cartita" src="${data.cards[1].images.png}" alt="">
@@ -43,12 +72,16 @@ fetch("https://deckofcardsapi.com/api/deck/new/draw/?count=6")
     var suma1=lista0.reduce((a,b) => a + b,0);
     console.log(suma1)
     listap.push(suma1)
+    var sumas=lista01.reduce((a,b) => a + b,0);
+    console.log(sumas)
+    listap2.push(sumas)
+ 
 })
 
 document.getElementById("pila").addEventListener("click",event1)
 var lista1=[]
 function event1(){
-    let url="https://deckofcardsapi.com/api/deck/new/draw/?count=52"
+    let url="https://deckofcardsapi.com/api/deck/new/draw/"
     fetch(url)
     .then(e=>e.json())
     .then(datos=>{
@@ -81,16 +114,20 @@ function event1(){
             }
           
         }
+ 
         lista1.push(parseInt(valor2))
         var suma2=lista1.reduce((a,b) => a + b,0);
+        console.log(lista1)
         listap.push(suma2)
-        console.log(suma2)
+
        
-        
     })
-    total()
    
+  
+    total()
 }
+
+
 document.getElementById("pila2").addEventListener("click",event2)
 var lista2=[]
 function event2(){
@@ -128,13 +165,13 @@ function event2(){
           
         }
         lista2.push(parseInt(valor3))
-        var suma4=lista1.reduce((a,b) => a + b,0);
-        listap.push(suma4)
+        var suma4=lista2.reduce((a,b) => a + b,0);
         console.log(suma4)
+        listap2.push(suma4)
        
         
     })
-    total()
+    total2()
 
     
 }
@@ -143,12 +180,31 @@ function total() {
     var sumatotal=listap.reduce((a,b) => a + b,0);
     console.log( sumatotal)
     if(sumatotal>21){
-        confirm(" GAME OVER ")
+        const guardar2=document.getElementById("div1");
+        guardar2.style.display="block"
     }
     if(sumatotal==21){
-        confirm(" WINNER ")
+        const guardar22=document.getElementById("div2");
+        guardar22.style.display="block"
         
     }
-    
+    document.getElementById(`player1`).innerHTML+=`
+        ${sumatotal}
+    `
 }
-
+function total2() {
+    var sumatotal11=listap2.reduce((a,b) => a + b,0);
+    console.log( sumatotal11)
+    if(sumatotal11>21){
+       const guardar1=document.getElementById("div3");
+       guardar1.style.display="block"
+    }
+    if(sumatotal11==21){
+        const guardar11=document.getElementById("div4");
+        guardar11.style.display="block"
+        
+    }
+    document.getElementById(`player2`).innerHTML+=`
+        ${sumatotal11}
+    `
+}
