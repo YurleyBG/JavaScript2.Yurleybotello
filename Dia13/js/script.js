@@ -55,7 +55,7 @@ fetch("https://deckofcardsapi.com/api/deck/new/draw/?count=4")
         valor5=10
     }
     else if(valor5=="ACE"){
-        valor1=1
+        valor5=1
     }
     lista0.push(parseInt(valor0),parseInt(valor1))
     lista01.push(parseInt(valor4),parseInt(valor5))
@@ -70,14 +70,11 @@ fetch("https://deckofcardsapi.com/api/deck/new/draw/?count=4")
      
     `
     var suma1=lista0.reduce((a,b) => a + b,0);
-    console.log(suma1)
     listap.push(suma1)
     var sumas=lista01.reduce((a,b) => a + b,0);
-    console.log(sumas)
     listap2.push(sumas)
  
 })
-
 document.getElementById("pila").addEventListener("click",event1)
 var lista1=[]
 function event1(){
@@ -85,14 +82,11 @@ function event1(){
     fetch(url)
     .then(e=>e.json())
     .then(datos=>{
-        
         let cartitaaleat=datos.cards
         carrandom=cartitaaleat[Math.floor(Math.random()*cartitaaleat.length)];
-        console.log(carrandom.images.png);
-        
         document.getElementById(`mostracarta1`).innerHTML+=`
             <img id="cartita1" src="${carrandom.images.png}" alt="">
-        `
+        ` 
         console.log(datos)
         valor2=carrandom.value
         if(valor2=="QUEEN"){
@@ -112,22 +106,13 @@ function event1(){
             if(noti==2){
                 valor2=11
             }
-          
         }
- 
         lista1.push(parseInt(valor2))
         var suma2=lista1.reduce((a,b) => a + b,0);
-        console.log(lista1)
-        listap.push(suma2)
-
-       
+        listap.push(suma2) 
+        total() 
     })
-   
-  
-    total()
 }
-
-
 document.getElementById("pila2").addEventListener("click",event2)
 var lista2=[]
 function event2(){
@@ -135,15 +120,11 @@ function event2(){
     fetch(url)
     .then(e=>e.json())
     .then(datoss=>{
-        
         let cartitaaleat1=datoss.cards
         carrandom1=cartitaaleat1[Math.floor(Math.random()*cartitaaleat1.length)];
-        console.log(carrandom1.images.png);
-        
         document.getElementById(`mostracarta2`).innerHTML+=`
             <img id="cartita1" src="${carrandom1.images.png}" alt="">
         `
-        console.log(datoss)
         valor3=carrandom1.value
         if(valor3=="QUEEN"){
             valor3=10
@@ -162,23 +143,15 @@ function event2(){
             if(noti==2){
                 valor3=11
             }
-          
         }
         lista2.push(parseInt(valor3))
         var suma4=lista2.reduce((a,b) => a + b,0);
-        console.log(suma4)
         listap2.push(suma4)
-       
-        
+        total2()
     })
-    total2()
-
-    
 }
-
 function total() {
     var sumatotal=listap.reduce((a,b) => a + b,0);
-    console.log( sumatotal)
     if(sumatotal>21){
         const guardar2=document.getElementById("div1");
         guardar2.style.display="block"
@@ -186,15 +159,10 @@ function total() {
     if(sumatotal==21){
         const guardar22=document.getElementById("div2");
         guardar22.style.display="block"
-        
     }
-    document.getElementById(`player1`).innerHTML+=`
-        ${sumatotal}
-    `
 }
 function total2() {
     var sumatotal11=listap2.reduce((a,b) => a + b,0);
-    console.log( sumatotal11)
     if(sumatotal11>21){
        const guardar1=document.getElementById("div3");
        guardar1.style.display="block"
@@ -204,7 +172,5 @@ function total2() {
         guardar11.style.display="block"
         
     }
-    document.getElementById(`player2`).innerHTML+=`
-        ${sumatotal11}
-    `
 }
+     

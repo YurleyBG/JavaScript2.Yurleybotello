@@ -42,3 +42,78 @@ button:hover{
     left: 3vw; 
     color: white;
 }
+#reglastext{
+    display: none;
+    text-align: left;
+    width: 20vw;
+    height: 25vw;
+    background-color: white;
+    border: 2px solid rgb(231, 73, 15);
+    border-radius: 0.5vw;
+    color: black;
+    font-size: 1.5vw;
+}
+#reglastext p{
+    text-align: center;
+    color: rgb(231, 73, 15);
+}
+#check{
+    display: none;
+}
+#check:checked ~ #reglastext{
+    display: block;
+}
+@media only screen and (max-width:430px){
+    #container{
+        margin: -2vw;
+        padding: 0;
+    }
+    #fondoo{
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+        height:200vw;
+        align-items: center;
+    }
+    #titulo{
+        width: 60vw;
+        color: rgb(255, 255, 255);
+        font-size: 12vw;
+        position: absolute;
+        top: 70vw;
+        left: 20vw;
+    }
+    button{
+        position:absolute;
+        top: 100vw;
+        left: 23vw;
+        width: 50vw;
+        height: 10vw;
+        border-radius: 5vw;
+        background-color: rgb(3, 3, 3);
+        font-family:cursive;
+        color: white;
+        box-shadow: 0 0.5vw 1vw 0vw rgb(231, 73, 15) ;
+        border-color: rgb(231, 73, 15);
+        font-size: 2.5vw;
+    }
+    #reglas{
+        position:absolute;
+        top: 2vw;
+        left: 3vw; 
+        color: white;
+        font-size: 3vw;
+    }
+    #reglastext{
+        display: none;
+        text-align: left;
+        width: 50vw;
+        height: 55vw;
+        background-color: white;
+        border: 2px solid rgb(231, 73, 15);
+        border-radius: 1vw;
+        color: black;
+        font-size: 3vw;
+    }
+  
+}
