@@ -1,0 +1,77 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#container{
+    width: 100vw;
+    height: 50vw;
+    display: flex;
+}
+#barraAzul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 15vw;
+    background-color: #3844c4;
+}
+#barraAzul #title{
+    position: absolute;
+    top: 3vw;
+    color: white;
+    font-size: 3vw;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+#barraAzul #title1{
+
+    color: white;
+    font-size: 1vw;
+}
+#buscar{
+    padding: 1vw;
+    position: absolute;
+    top: 10vw;
+    width: 50vw;
+    height: 3vw;
+    border-radius: 2vw;
+    font-size: 1vw;
+    
+}
+#mostrar{
+    position: absolute;
+    top: 18vw;
+}
+#cuadrito{
+    
+    margin-top: 2vw;
+    width: 100vw;
+    height: 12vw;
+    border: 1px solid #3844c4;
+}
+#imagen{
+    margin-left: 2vw ;
+    margin-top: -23vw;
+    width: 8vw;
+    height: 8vw;
+    border-radius: 5vw;
+}
+#name{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 16vw;
+    margin-top: 3vw;
+    font-weight: 600;
+    font-size: 2vw;
+}
+#descripcion{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 16vw;
+    margin-top: 2vw;
+    font-weight: 600;
+    font-size: 1.5vw;
+}
+.filtro{
+    display:none;
+}
