@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#cuadro{
+    background-color: blue;
+    width: 10vw;
+    height: 50vw;
+}
+#contenido{
+
+    width: 100vw;
+    height: 50vw;
+  
+}
+#tittle{
+    position: absolute;
+    top: 1vw;
+    left: 28vw;
+    font-size: 4vw;
+}
+#inputProducto{
+    padding-left: 1vw;
+    position: absolute;
+    top: 10vw;
+    left: 20vw;
+    width: 35vw;
+    height: 3vw;
+    font-size: 1vw;
+    border-radius: 2vw;
+    border-color: blue;
+}
+#vias-A{
+    position: absolute;
+    top: 10vw;
+    left: 60vw;
+    width: 25vw;
+    height: 3vw;
+    font-size: 1vw;
+    border-radius: 2vw;
+    border-color: blue;
+    
+}
+#imagen{
+    position: absolute;
+    top: 0.5vw;
+    left: 10vw;
+    width: 4vw;
+    height: 4vw;
+}
+#menu{
+    position: absolute;
+    top: 2vw;
+    left: 95vw;
+    width: 2vw;
+    height: 2vw;
+}
+#ver{
+    position: absolute;
+    top: 15vw;
+    left: 15vw;
+    width: 80vw;
+    height: 33vw;
+    background-color: rgb(245, 245, 245);
+    overflow: scroll;
+    font-size: 1.5vw;
+    padding: 2vw;
+}
+#link{
+    position: absolute;
+    top: 2vw;
+    left: 90vw;
+    width: 14vw;
+    height: 4vw;
+    font-size: 1vw;
+    text-decoration: none;
+    color: black;
+}

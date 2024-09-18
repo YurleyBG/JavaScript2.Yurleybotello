@@ -1,0 +1,35 @@
+#fondo{
+    width: 100vw;
+    height: 50vw;
+
+}
+#titulo{
+    position: absolute;
+    top: 10vw;
+    left: 10vw;
+    width: 100vw;
+    font-size: 6vw;
+    font-weight: 300;
+    color: white;
+}
+#ingresar{
+    width: 20vw;
+    height: 4vw;
+    background-color: white;
+    color: black;
+    border-radius: 3vw;
+    position: absolute;
+    top: 30vw;
+    left: 40vw;
+    font-size: 2vw;
+}
+#ingresar:hover{
+    background-color: rgb(10, 10, 90);
+    color: white;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
